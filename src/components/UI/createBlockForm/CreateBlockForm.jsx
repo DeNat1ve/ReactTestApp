@@ -16,9 +16,12 @@ const CreateBlockForm = ({ id, create, setVisible }) => {
 
     return (
         <form className={cl.form}>
-            <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-            <input type="text" value={body} onChange={e => setBody(e.target.value)} />
-            <button onClick={(addNewBlock)}>Add New Block</button>
+            <div className={cl.modalTitle}>Form for creating a new block</div>
+            <input type="text" value={title} onChange={e => setTitle(e.target.value)} className={cl.input} placeholder='Title...' />
+            <input type="text" value={body} onChange={e => setBody(e.target.value)} className={cl.input} placeholder='Text...' />
+            <div className={cl.container}>
+                <button onClick={(addNewBlock)} className={cl.button}>Add New Block</button>
+            </div>
         </form>
     );
 };

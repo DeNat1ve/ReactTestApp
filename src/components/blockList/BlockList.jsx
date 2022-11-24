@@ -18,7 +18,9 @@ const BlockList = ({ blocks, remove, rating, create }) => {
                 </div>
             )}
             <ModalWindow visible={isVisible} setVisible={setVisible}><CreateBlockForm id={blocks[blocks.length - 1].id + 1} create={create} setVisible={setVisible} /></ModalWindow>
-            <button className='add-block-button' onClick={() => setVisible(true)}>Add New Block</button>
+            <div className="add-block">
+                <button className='add-block-button' onClick={() => setVisible(true)}>Add New Block</button>
+            </div>
         </div>
     );
 };

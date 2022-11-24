@@ -7,29 +7,36 @@ import DislikeSvg from '../../svg/Dislike'
 const BlockInteractive = (props) => {
 
     const [isLiked, setLike] = useState(false)
-    const [isDisliked, setDisliked] = useState(false)
+    const [isDisliked, setDislike] = useState(false)
 
     const Like = () => {
-        if (!isLiked) {
+        if (!isLiked && isDisliked) {
             setLike(true)
-            setDisliked(false)
+            setDislike(false)
             props.rating.likes += 1
-        }
-        else {
+            props.rating.dislikes -= 1
+        } else if (isLiked) {
             setLike(false)
             props.rating.likes -= 1
+        } else {
+            setDislike(true)
+            props.rating.dislikes += 1
         }
     }
 
     const Dislike = () => {
-        if (!isDisliked) {
-            setDisliked(true)
+        if (!isDisliked && isLiked) {
+            setDislike(true)
             setLike(false)
             props.rating.dislikes += 1
+            props.rating.likes -= 1
+        } else if (isDisliked) {
+            setDislike(false)
+            props.rating.dislikes -= 1
         }
         else {
-            setDisliked(false)
-            props.rating.dislikes -= 1
+            setDislike(true)
+            props.rating.dislikes += 1
         }
     }
 

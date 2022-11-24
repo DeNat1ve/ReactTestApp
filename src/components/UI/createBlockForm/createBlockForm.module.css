@@ -1,3 +1,46 @@
 .form {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.modalTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.input {
+    margin: 10px 0px;
+    font-size: 18px;
+    background-color: rgb(44, 44, 44);
+    border: 0;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    flex: 0 1 700px;
+}
+
+.input:focus-visible {
+    outline: 2px solid gray;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.button {
+    color: white;
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(44, 44, 44);
+    cursor: pointer;
+    transition: 500ms ease;
+}
+
+.button:hover {
+    background-color: rgb(34, 34, 34);
 }
