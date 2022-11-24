@@ -8,3 +8,33 @@ header {
     display: flex;
     flex: 1 1;
 }
+
+.options {
+    display: flex;
+    flex: 1 1;
+    justify-content: flex-end;
+}
+
+.nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-button {
+    background-color: inherit;
+    border: 0;
+    fill: white;
+    cursor: pointer;
+    padding-left: 50px;
+    transition: 500ms ease;
+}
+
+.nav-button:hover {
+    fill: gray;
+}
+
+.NavSvg {
+    width: 25px;
+    height: 25px;
+}

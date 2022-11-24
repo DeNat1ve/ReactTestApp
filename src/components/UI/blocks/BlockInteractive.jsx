@@ -43,7 +43,7 @@ const BlockInteractive = (props) => {
     return (
         < div className="block" >
             <div className="title">{props.block.title}</div>
-            <div className="line-horizontal-container"><div className="line-horizontal w120px"></div></div>
+            <div className="line-horizontal-container"><div className="line-horizontal w120px b2px"></div></div>
             <div className="body">{props.block.body}</div>
             <div className="interactive">
                 <div className="rating">
