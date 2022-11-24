@@ -1,7 +1,6 @@
 import Header from "./components/header/Header.jsx";
 import BlockList from "./components/blockList/BlockList.jsx";
 import { useState } from 'react'
-import CreateBlockForm from "./components/UI/createBlockForm/CreateBlockForm.jsx";
 
 function App() {
   const [blocks, setBlocks] = useState([
@@ -21,15 +20,16 @@ function App() {
     setRating(rating.filter(r => r.id !== block.id)))
   )
 
+
   const addNewBlock = ((block) =>
-    setBlocks([...blocks, block])
+  (setBlocks([...blocks, block]),
+    setRating([...rating, { id: block.id, likes: 0, dislikes: 0 }]))
   )
 
   return (
     <div className="App">
       <Header />
-      <BlockList blocks={blocks} remove={removeBlock} rating={rating} />
-      <CreateBlockForm add={addNewBlock} />
+      <BlockList blocks={blocks} remove={removeBlock} rating={rating} create={addNewBlock} />
     </div>
 
   );
