@@ -1,6 +1,7 @@
 import React from 'react';
 import './blockList.css'
 import BlockInteractive from '../UI/blocks/BlockInteractive';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const BlockList = ({ blocks, remove, rating }) => {
     return (
@@ -8,11 +9,15 @@ const BlockList = ({ blocks, remove, rating }) => {
             <div className="blocks-title">
                 Some blocks:
             </div>
-            {blocks.map((block) =>
-                <div className="block-container" key={block.id}>
-                    <BlockInteractive block={block} rating={rating.filter(r => r.id == block.id)[0]} remove={remove} />
-                </div>
-            )}
+            <TransitionGroup>
+                {blocks.map((block) =>
+                    <CSSTransition timeout={1000} classNames="item-block" key={block.id}>
+                        <div className="block-container">
+                            <BlockInteractive block={block} rating={rating.filter(r => r.id === block.id)[0]} remove={remove} />
+                        </div>
+                    </CSSTransition>
+                )}
+            </TransitionGroup>
         </div>
     );
 };
